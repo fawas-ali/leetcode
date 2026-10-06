@@ -3,13 +3,16 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    let minPrice = Infinity, maxProfit = 0;
-    for(let price of prices) {
-        if(price < minPrice) {
-            minPrice = price;
-        } else if (price - minPrice > maxProfit) {
-            maxProfit = price - minPrice;
+    let profit = 0;
+    let left = 0;
+    let right = 1;
+    while(right < prices.length) {
+        if(prices[left] < prices[right]) {
+            profit = Math.max(profit, prices[right] - prices[left])
+        } else {
+            left = right;
         }
+        right++;
     }
-    return maxProfit;
-};
+    return profit;
+}

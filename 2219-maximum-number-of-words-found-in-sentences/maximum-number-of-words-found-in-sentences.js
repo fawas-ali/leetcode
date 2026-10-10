@@ -3,10 +3,15 @@
  * @return {number}
  */
 var mostWordsFound = function(sentences) {
-    let longest = 0
+    let maxWords = 0;
     for(let sentence of sentences) {
-        let length = sentence.split(" ").length;
-        longest = Math.max(length, longest);
+        let words = 1;
+        for(let char of sentence) {
+            if(char === " ") {
+                words++;
+            }
+        }
+        maxWords = Math.max(maxWords, words);
     }
-    return longest;
+    return maxWords;
 };

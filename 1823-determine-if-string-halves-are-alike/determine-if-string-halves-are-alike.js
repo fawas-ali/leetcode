@@ -4,17 +4,16 @@
  */
 var halvesAreAlike = function(s) {
     let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
-    let aCount = 0;
-    let bCount = 0
-    for(let i = 0; i < s.length / 2; i++) {
+    let count = 0;
+    let half = s.length / 2;
+    for(let i = 0; i < half; i++) {
         if(vowels.includes(s[i])) {
-            aCount++
+            count++;
+        }
+        if(vowels.includes(s[half + i])) {
+            count--;
         }
     }
-    for(let i = s.length / 2; i < s.length; i++) {
-        if(vowels.includes(s[i])) {
-            bCount++
-        }
-    }
-    return aCount === bCount;
+    
+    return count === 0;
 }

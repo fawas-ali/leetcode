@@ -3,12 +3,17 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    let freq = {};
+    let candidate = nums[0];
+    let count = 0;
     for(let num of nums) {
-        freq[num] = (freq[num] || 0) + 1;
-        if(freq[num] > (nums.length / 2)) {
-            return num;
+        if(count === 0) {
+            candidate = num;
+        } 
+        if(num === candidate) {
+            count++;
+        } else {
+            count--;
         }
     }
-    return 
+    return candidate;
 };

@@ -3,9 +3,9 @@
  * @return {number}
  */
 var singleNumber = function(nums) {
-    let freq = {};
+    let result = 0;
     for(let num of nums) {
-        freq[num] = (freq[num] || 0) + 1;
+        result ^= num;
     }
-    return Number(Object.keys(freq).find(key => freq[key] === 1));
+    return result;
 };
